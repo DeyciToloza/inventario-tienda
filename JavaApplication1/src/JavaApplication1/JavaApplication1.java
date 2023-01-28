@@ -16,17 +16,12 @@ public class JavaApplication1 {
     
     public static void main(String[] args) {
         //leer un TXT       
-//        archivo ArClientes = new archivo("Txt\\clientes.txt");
-//        archivo ArProductos = new archivo("Txt\\productos.txt");
-        archivo ArPrecios = new archivo("Txt\\precios.txt");
-        archivo ArVentas = new archivo("Txt\\ventas.txt");
-        
-        
         Cliente cliente = new Cliente("Txt\\clientes.txt");
         List<String> clientes = cliente.getClientes();
-        Producto producto = new Producto("Txt\\productos.txt");
+        Producto producto = new Producto("Txt\\productos.txt","Txt\\precios.txt");
         List<String> productos = producto.getProductos();
-        List<String> precios = ArPrecios.leerTxt();
+        List<String> precios = producto.getPrecio();
+        Venta venta = new Venta("Txt\\ventas.txt");
         
         
         
@@ -112,9 +107,9 @@ public class JavaApplication1 {
                 String vPrecio = precios.get(choice_producto.getSelectedIndex()) ;
                 String vCantidad =  text_cantidad.getText() ;
                 int total = Integer.parseInt(vPrecio)*Integer.parseInt(vCantidad);
-                String venta = vCliente + "  " + vProducto + "  " + vPrecio + "  " + vCantidad + "  " + Integer.toString(total) + "\n";
-                System.out.println(venta);
-                ArVentas.grabar(venta);
+                String ven = vCliente + "  " + vProducto + "  " + vPrecio + "  " + vCantidad + "  " + Integer.toString(total) + "\n";
+                System.out.println(ven);
+                venta.setVenta(ven);
             }
         } );
         

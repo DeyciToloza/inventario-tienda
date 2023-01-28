@@ -1,2 +1,6 @@
 nombre producto precio total
 ----------------------------
+Pedro  Piña  3000  3  9000
+
+Pedro  Manzana  1100  2  2200
+
